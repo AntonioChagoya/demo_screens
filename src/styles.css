@@ -84,10 +84,10 @@ section {
 }
 .container {
   position: relative;
-  min-width: 208px;
-  min-height: 208px;
-  width: 208px;
-  height: 208px;
+  min-width: 230px;
+  min-height: 230px;
+  width: 230px;
+  height: 230px;
 }
 .underline {
   height: 2px;
