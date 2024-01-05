@@ -17,7 +17,7 @@ const riveStart = document.getElementById("start-button");
 
 const riveInstance = new rive.Rive({
   // Load a local riv `clean_the_car.riv` or upload your own!
-  src: "erisyon-animation.riv",
+  src: "complete.riv",
   // Be sure to specify the correct state machine (or animation) name
   stateMachines: "State Machine 1", // Name of the State Machine to play
   canvas: riveCanvas,
@@ -46,7 +46,7 @@ riveStart.addEventListener(
 riveButton.addEventListener(
   "click",
   () => {
-    
+    riveInstance.stop()
     riveInstance.reset();
   },
   false
