@@ -28,7 +28,7 @@ h2 {
   letter-spacing: 0.2em;
   text-align: center;
   text-transform: uppercase;
-  margin: 0;
+  margin: 23px 0 0 0;
 }
 button {
   cursor: pointer;
@@ -47,7 +47,7 @@ button[name="stop"] {
   line-height: 30px;
   letter-spacing: 0.2em;
   text-align: center;
-
+  border: none;
   margin-top: 156px;
 }
 button[name="start"] {
@@ -64,6 +64,7 @@ button[name="start"] {
   letter-spacing: 0.2em;
   text-align: center;
   text-transform: uppercase;
+  border: none;
   transition: ease-out 1s;
 }
 #step-1 {

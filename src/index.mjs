@@ -22,11 +22,6 @@ const riveInstance = new rive.Rive({
   stateMachines: "State Machine 1", // Name of the State Machine to play
   canvas: riveCanvas,
   layout: layout, // This is optional. Provides additional layout control.
-  // autoplay: true,
-  // onLoad: () => {
-  //   // Prevent a blurry canvas by using the device pixel ratio
-  //   riveInstance.resizeDrawingSurfaceToCanvas();
-  // },
 });
 
 // Resize the drawing surface if the window resizes
