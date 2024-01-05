@@ -15,14 +15,14 @@ const riveCanvas = document.getElementById("rive-canvas");
 const riveButton = document.getElementById("rive-button");
 const riveStart = document.getElementById("start-button");
 
-const riveInstance = new rive.Rive({
-  // Load a local riv `clean_the_car.riv` or upload your own!
-  src: "complete.riv",
-  // Be sure to specify the correct state machine (or animation) name
-  stateMachines: "State Machine 1", // Name of the State Machine to play
-  canvas: riveCanvas,
-  layout: layout, // This is optional. Provides additional layout control.
-});
+// const riveInstance = new rive.Rive({
+//   // Load a local riv `clean_the_car.riv` or upload your own!
+//   src: "complete.riv",
+//   // Be sure to specify the correct state machine (or animation) name
+//   stateMachines: "State Machine 1", // Name of the State Machine to play
+//   canvas: riveCanvas,
+//   layout: layout, // This is optional. Provides additional layout control.
+// });
 
 // Resize the drawing surface if the window resizes
 window.addEventListener(
@@ -32,22 +32,38 @@ window.addEventListener(
   },
   false
 );
+let oldInstance = null;
 
 riveStart.addEventListener(
   "click",
   () => {
+    if (oldInstance) {
+      oldInstance.cleanup();
+    }
+    const riveInstance = new rive.Rive({
+      // Load a local riv `clean_the_car.riv` or upload your own!
+      src: "complete.riv",
+      // Be sure to specify the correct state machine (or animation) name
+      stateMachines: "State Machine 1", // Name of the State Machine to play
+      canvas: riveCanvas,
+      layout: layout, // This is optional. Provides additional layout control.
+    });
+    oldInstance = riveInstance;
     riveInstance.resizeDrawingSurfaceToCanvas();
 
-      riveInstance.play();
-
+    riveInstance.play();
   },
   false
 );
 riveButton.addEventListener(
   "click",
   () => {
-    riveInstance.stop()
-    riveInstance.reset();
+
+    if (oldInstance) {
+      riveInstance.stop();
+
+      riveInstance.cleanup();
+    }
   },
   false
 );
